@@ -1,3 +1,4 @@
+import type { McpAppPresentation } from "@t3tools/contracts";
 import * as Predicate from "effect/Predicate";
 
 export const MCP_APP_PROTOCOL_VERSION = "2026-01-26";
@@ -268,4 +269,33 @@ export function clampMcpAppHeight(height: number): number {
 export function mcpAppFileName(reference: McpAppReference): string {
   const name = reference.tool.replace(/[^\w.-]+/g, "-").slice(0, 80) || "app";
   return `${name}.html`;
+}
+
+export type McpAppServerPresentation = Readonly<Record<string, McpAppPresentation>>;
+
+export function resolveMcpAppPresentation(
+  presentation: McpAppPresentation,
+  servers: McpAppServerPresentation,
+  server: string,
+): McpAppPresentation {
+  return servers[server] ?? presentation;
+}
+
+/** Keeps only real exceptions, so an entry that matches the default is dropped. */
+export function setMcpAppServerPresentation(
+  presentation: McpAppPresentation,
+  servers: McpAppServerPresentation,
+  server: string,
+  mode: McpAppPresentation,
+): McpAppServerPresentation {
+  const { [server]: _previous, ...rest } = servers;
+  return mode === presentation ? rest : { ...rest, [server]: mode };
+}
+
+/** A new default absorbs the exceptions that now match it. */
+export function withoutMcpAppServerPresentation(
+  servers: McpAppServerPresentation,
+  mode: McpAppPresentation,
+): McpAppServerPresentation {
+  return Object.fromEntries(Object.entries(servers).filter(([, value]) => value !== mode));
 }

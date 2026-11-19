@@ -3599,11 +3599,32 @@
   "6d329f7d3a50c7e7": "Copy table",
   "6c71d251d9917587": "Copy as Markdown",
   "d510b122f84051a0": "Copy as CSV",
+  "efd6c11387619a64": "{server} app",
+  "a00003d0fa20c9fc": "{server} app options",
+  "dff97202cbdaec5b": "Show app",
+  "f8df535b431ae436": [
+    "Always show ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    },
+    " apps"
+  ],
+  "8e707f04c0f6f1a8": [
+    "Always collapse ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    },
+    " apps"
+  ],
   "ced684880c2e1961": "Allow {server} to run {tool}?",
   "b66fa23b5647b62d": "Send this message from {server}?",
   "bae7f74153fa8a05": "Save {names} from {server}?",
   "7e072f3b5535dc99": "Exit full screen",
-  "efd6c11387619a64": "{server} app",
+  "aaf2af530949736d": "Collapse the {server} app",
   "cda76d56e346d417": [
     "The ",
     {
@@ -3613,7 +3634,6 @@
     },
     " app was closed"
   ],
-  "dff97202cbdaec5b": "Show app",
   "705cf2b2ee4e0e42": [
     "The ",
     {
@@ -4083,6 +4103,7 @@
   "66be4fb43249bbd2": "{used} of {max} tokens",
   "ee3ae58c8b38a425": "{left}% left",
   "ebb26f93fb83a71b": "{label}: {left}% left",
+  "1b16346722b65812": "{timeLeft}% of the window left",
   "728c6cc1431e76c8": "Resets in {duration} · {time}",
   "e16b0b9b490c8bc7": "{label}: {value}",
   "ba67d0a9ff5dabf0": "Clipboard API is unavailable while copying admin request.",
@@ -8676,6 +8697,13 @@
   "06ed78c51947fdb7": "T3 Code will restart and start running a server on this computer again.",
   "5741e027bc5d5e4c": "Restart and turn off",
   "e09686bd65886c10": "Restart and turn on",
+  "83cee9c60d395ea7": "Inline",
+  "610ab21300968834": "Collapsed",
+  "567e6a449b197839": "Show the apps that MCP servers attach to tool calls, or collapse them to a line. To treat one server differently, use the menu on one of its collapsed apps.",
+  "ef8d7c5cdb246686": "Reset MCP apps to default",
+  "f57f7d328ac91f45": "MCP apps",
+  "16bb357e31fd6d43": "MCP server exceptions",
+  "10978cf6f08b9e60": "Remove the exception for {server}",
   "b8c82ba62b34f0e4": "Microphones, preferred first",
   "9fe08946d6dbd618": "Saved microphone",
   "8101bb8e3c7427bf": "Move {name} up",
@@ -9822,7 +9850,6 @@
   "6272d601c80c5082": "Hide whitespace changes by default",
   "0cb24244499b6b4e": "Start with files expanded or collapsed when opening diffs or a pull request's Code tab.",
   "aa2ead0db85b3fde": "Reset default diff file state to default",
-  "610ab21300968834": "Collapsed",
   "f300ec21e6391b6c": "Expanded",
   "a0eb0e4f76608833": "Open linked pull requests first. Otherwise, open Changes for edits to at least 3 files or 50 lines.",
   "16bdc70b858c223f": "Reset proactive panels to default",
@@ -11471,6 +11498,7 @@
   "405a2295152c9d77": "beta folders project tree classic sidebar",
   "de42c4690914cee4": "beta boring sidebar folder rows multiline branch pull request details",
   "8f71bc7c325e23e3": "hide tool calls commands edits searches work log activity quiet chat zen final answers only",
+  "5b72cf74c01aaea0": "mcp apps widgets cards collapse expand inline hide jira trello connectors",
   "5a3af411a0d5354c": "accessibility a11y screen reader nvda jaws voiceover orca narrator speech announce read aloud messages activity steps",
   "d443390c4d2dcfd4": "accessibility a11y screen reader nvda jaws voiceover orca narrator window title tab title alt tab taskbar thread status order working approval",
   "6826fa9579c22035": "beta share guest invite link teammate watch t3 connect tunnel",
@@ -11866,7 +11894,6 @@
   "0bd938825ffcf992": "+{percent}% of pool",
   "09c0e00d7fb55402": "Using reset credit…",
   "4df3ff1be768a7ab": "{name}: {remaining}% left",
-  "1b16346722b65812": "{timeLeft}% of the window left",
   "7aaaff1c6484f25c": "Segment",
   "8bcab2ef61de6518": "$0 cap",
   "a16b48709357a5a7": "Manage usage",

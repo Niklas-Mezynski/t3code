@@ -2,6 +2,9 @@ import * as NodeVM from "node:vm";
 import { describe, expect, it } from "vite-plus/test";
 
 import {
+  resolveMcpAppPresentation,
+  setMcpAppServerPresentation,
+  withoutMcpAppServerPresentation,
   injectMcpAppCsp,
   injectMcpAppThemeBootstrap,
   injectMcpAppCookieBootstrap,
@@ -299,5 +302,17 @@ describe("MCP App cookie bootstrap", () => {
     });
     expect(() => execute(injectMcpAppCookieBootstrap(vendor), document)).toThrow(failure);
     expect(() => Reflect.get(document, "cookie")).toThrow(failure);
+  });
+});
+
+describe("MCP app presentation", () => {
+  it("stores only exceptions to the default", () => {
+    const servers = setMcpAppServerPresentation("inline", {}, "claude.ai Trello", "collapsed");
+    expect(resolveMcpAppPresentation("inline", servers, "claude.ai Trello")).toBe("collapsed");
+    expect(resolveMcpAppPresentation("inline", servers, "claude.ai Atlassian")).toBe("inline");
+    expect(setMcpAppServerPresentation("inline", servers, "claude.ai Trello", "inline")).toEqual(
+      {},
+    );
+    expect(withoutMcpAppServerPresentation(servers, "collapsed")).toEqual({});
   });
 });

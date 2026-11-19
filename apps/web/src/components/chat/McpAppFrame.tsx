@@ -20,7 +20,7 @@ import {
   type McpAppReference,
 } from "@t3tools/shared/mcpApp";
 import { msg, T, useGT, Var } from "gt-react";
-import { Minimize2Icon } from "lucide-react";
+import { ChevronsDownUpIcon, Minimize2Icon } from "lucide-react";
 import { useEffect, useRef, useState, type FocusEvent, type ToggleEvent } from "react";
 import { flushSync } from "react-dom";
 
@@ -90,6 +90,7 @@ export function McpAppFrame(props: {
   readonly onSendMessage: ((text: string) => Promise<void>) | undefined;
   readonly awaitingUser?: boolean;
   readonly onFullscreenChange?: (fullscreen: boolean) => void;
+  readonly onCollapse?: () => void;
 }) {
   const { app } = props;
   const gt = useGT();
@@ -460,7 +461,7 @@ export function McpAppFrame(props: {
           : {})}
         data-mcp-app-fullscreen={fullscreen ? "" : undefined}
         className={cn(
-          "relative size-full overflow-hidden",
+          "group/mcp-app relative size-full overflow-hidden",
           app.prefersBorder === true && !fullscreen && "rounded-lg border border-border",
           fullscreen
             ? "fixed inset-0 m-0 flex h-dvh max-h-none w-dvw max-w-none flex-col border-0 bg-background p-0"
@@ -482,6 +483,18 @@ export function McpAppFrame(props: {
               onClick={() => setDisplayMode("inline")}
             >
               <Minimize2Icon className="size-4" />
+            </Button>
+          </div>
+        ) : null}
+        {props.onCollapse && !fullscreen ? (
+          <div className="absolute end-2 top-2 z-10 opacity-0 transition-opacity focus-within:opacity-100 group-hover/mcp-app:opacity-100 pointer-coarse:opacity-100">
+            <Button
+              aria-label={gt("Collapse the {server} app", { server: app.server })}
+              size="icon-xs"
+              variant="glass"
+              onClick={props.onCollapse}
+            >
+              <ChevronsDownUpIcon />
             </Button>
           </div>
         ) : null}

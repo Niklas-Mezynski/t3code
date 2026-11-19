@@ -3600,11 +3600,32 @@
   "6d329f7d3a50c7e7": "Tabelle kopieren",
   "6c71d251d9917587": "Als Markdown kopieren",
   "d510b122f84051a0": "Als CSV kopieren",
+  "efd6c11387619a64": "{server}-App",
+  "a00003d0fa20c9fc": "Optionen für die {server}-App",
+  "dff97202cbdaec5b": "App anzeigen",
+  "f8df535b431ae436": [
+    "Apps von ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    },
+    " immer anzeigen"
+  ],
+  "8e707f04c0f6f1a8": [
+    "Apps von ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    },
+    " immer einklappen"
+  ],
   "ced684880c2e1961": "{server} erlauben, {tool} auszuführen?",
   "b66fa23b5647b62d": "Diese Nachricht von {server} senden?",
   "bae7f74153fa8a05": "{names} von {server} speichern?",
   "7e072f3b5535dc99": "Vollbild beenden",
-  "efd6c11387619a64": "{server}-App",
+  "aaf2af530949736d": "{server}-App einklappen",
   "cda76d56e346d417": [
     "Die App ",
     {
@@ -3614,7 +3635,6 @@
     },
     " wurde geschlossen"
   ],
-  "dff97202cbdaec5b": "App anzeigen",
   "705cf2b2ee4e0e42": [
     "Die App ",
     {
@@ -4084,6 +4104,7 @@
   "66be4fb43249bbd2": "{used} von {max} Tokens",
   "ee3ae58c8b38a425": "{left} % übrig",
   "ebb26f93fb83a71b": "{label}: {left} % übrig",
+  "1b16346722b65812": "{timeLeft} % des Zeitfensters übrig",
   "728c6cc1431e76c8": "Wird in {duration} zurückgesetzt · {time}",
   "e16b0b9b490c8bc7": "{label}: {value}",
   "ba67d0a9ff5dabf0": "Die Zwischenablage-API ist beim Kopieren der Admin-Anfrage nicht verfügbar.",
@@ -8668,6 +8689,13 @@
   "06ed78c51947fdb7": "T3 Code startet neu und führt wieder einen Server auf diesem Computer aus.",
   "5741e027bc5d5e4c": "Neu starten und ausschalten",
   "e09686bd65886c10": "Neu starten und einschalten",
+  "83cee9c60d395ea7": "Eingeblendet",
+  "610ab21300968834": "Eingeklappt",
+  "567e6a449b197839": "Zeigt die Apps, die MCP-Server an Tool-Aufrufe anhängen, oder klappt sie zu einer Zeile ein. Um einen Server anders zu behandeln, nutzen Sie das Menü an einer seiner eingeklappten Apps.",
+  "ef8d7c5cdb246686": "MCP-Apps auf Standard zurücksetzen",
+  "f57f7d328ac91f45": "MCP-Apps",
+  "16bb357e31fd6d43": "Ausnahmen für MCP-Server",
+  "10978cf6f08b9e60": "Ausnahme für {server} entfernen",
   "b8c82ba62b34f0e4": "Mikrofone, bevorzugte zuerst",
   "9fe08946d6dbd618": "Gespeichertes Mikrofon",
   "8101bb8e3c7427bf": "{name} nach oben verschieben",
@@ -9813,7 +9841,6 @@
   "6272d601c80c5082": "Leerzeichenänderungen standardmäßig ausblenden",
   "0cb24244499b6b4e": "Dateien beim Öffnen von Diffs oder dem Code-Tab eines Pull Requests aus- oder eingeklappt anzeigen.",
   "aa2ead0db85b3fde": "Standardzustand von Diff-Dateien auf Standard zurücksetzen",
-  "610ab21300968834": "Eingeklappt",
   "f300ec21e6391b6c": "Ausgeklappt",
   "a0eb0e4f76608833": "Verknüpfte Pull Requests zuerst öffnen. Andernfalls „Änderungen“ bei Bearbeitungen an mindestens 3 Dateien oder 50 Zeilen öffnen.",
   "16bdc70b858c223f": "Proaktive Panels auf Standard zurücksetzen",
@@ -11463,6 +11490,7 @@
   "405a2295152c9d77": "beta ordner projektbaum klassische seitenleiste",
   "de42c4690914cee4": "beta schlichte seitenleiste ordner zeilen mehrzeilig branch pull request details",
   "8f71bc7c325e23e3": "tool-aufrufe ausblenden befehle bearbeitungen suchen arbeitsprotokoll aktivität ruhiger chat zen nur endgültige antworten",
+  "5b72cf74c01aaea0": "mcp apps widgets karten einklappen ausklappen eingeblendet ausblenden jira trello connectors",
   "5a3af411a0d5354c": "barrierefreiheit a11y screenreader nvda jaws voiceover orca sprachausgabe ansagen vorlesen nachrichten aktivität schritte",
   "d443390c4d2dcfd4": "barrierefreiheit a11y screenreader nvda jaws voiceover orca sprachausgabe fenstertitel tab-titel alt tab taskleiste thread status reihenfolge arbeitet genehmigung",
   "6826fa9579c22035": "beta teilen gast einladen link teammitglied zuschauen t3 connect tunnel",
@@ -11858,7 +11886,6 @@
   "0bd938825ffcf992": "+{percent} % des Kontingents",
   "09c0e00d7fb55402": "Reset-Guthaben wird verwendet…",
   "4df3ff1be768a7ab": "{name}: {remaining} % übrig",
-  "1b16346722b65812": "{timeLeft} % des Zeitfensters übrig",
   "7aaaff1c6484f25c": "Segment",
   "8bcab2ef61de6518": "0-$-Limit",
   "a16b48709357a5a7": "Nutzung verwalten",

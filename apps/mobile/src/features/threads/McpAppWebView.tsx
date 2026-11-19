@@ -26,10 +26,11 @@ import Constants from "expo-constants";
 import { msg, T, useGT, Var } from "gt-react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import { Platform, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
 
+import { SymbolView } from "../../components/ui/AppSymbol";
 import { AppText as Text } from "../../components/ui/AppText";
 import { m } from "../../i18n/messages";
 import { shareGeneratedAttachment } from "../../lib/attachmentDownload";
@@ -118,6 +119,7 @@ export function ThreadMcpApp(props: {
   readonly displayMode?: "inline" | "fullscreen";
   readonly onExitFullscreen?: () => void;
   readonly height?: number;
+  readonly onCollapse?: () => void;
 }) {
   const gt = useGT();
   const [height, setHeight] = useState(MCP_APP_INLINE_MAX_HEIGHT);
@@ -621,6 +623,21 @@ export function ThreadMcpApp(props: {
         <View pointerEvents="none" className="absolute inset-0 items-center justify-center">
           <AppActivityIndicator />
         </View>
+      ) : null}
+      {props.onCollapse && !fullscreen ? (
+        <Pressable
+          accessibilityLabel={gt("Collapse the {server} app", { server: app.server })}
+          accessibilityRole="button"
+          onPress={props.onCollapse}
+          className="absolute right-2 top-2 size-8 items-center justify-center rounded-full bg-background/80 active:opacity-60"
+        >
+          <SymbolView
+            name="chevron.up"
+            size={14}
+            tintColorClassName="accent-foreground-muted"
+            type="monochrome"
+          />
+        </Pressable>
       ) : null}
     </View>
   );

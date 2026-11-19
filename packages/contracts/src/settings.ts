@@ -352,6 +352,9 @@ export type EffortDisplay = typeof EffortDisplay.Type;
 export const ToolCallVisibility = Schema.Literals(["showAll", "hideSuccessful", "hideAll", "zen"]);
 export type ToolCallVisibility = typeof ToolCallVisibility.Type;
 
+export const McpAppPresentation = Schema.Literals(["inline", "collapsed"]);
+export type McpAppPresentation = typeof McpAppPresentation.Type;
+
 /** What the open thread reads to a screen reader: turn status, the agent's in-between messages too, or every step. */
 export const ScreenReaderAnnouncements = Schema.Literals(["status", "messages", "everything"]);
 export type ScreenReaderAnnouncements = typeof ScreenReaderAnnouncements.Type;
@@ -533,6 +536,13 @@ export const ClientSettingsSchema = Schema.Struct({
   ),
   toolCallVisibility: ToolCallVisibility.pipe(
     Schema.withDecodingDefault(Effect.succeed("showAll" as const)),
+  ),
+  mcpAppPresentation: McpAppPresentation.pipe(
+    Schema.withDecodingDefault(Effect.succeed("inline" as const)),
+  ),
+  // Sparse exceptions to mcpAppPresentation, keyed by the MCP server name the provider reports.
+  mcpAppServerPresentation: Schema.Record(Schema.String, McpAppPresentation).pipe(
+    Schema.withDecodingDefault(Effect.succeed({})),
   ),
   screenReaderAnnouncements: ScreenReaderAnnouncements.pipe(
     Schema.withDecodingDefault(Effect.succeed("status" as const)),
@@ -2103,6 +2113,8 @@ export const ClientSettingsPatch = Schema.Struct({
   boringSidebarEnabled: Schema.optionalKey(Schema.Boolean),
   boringSidebarMultilineRows: Schema.optionalKey(Schema.Boolean),
   toolCallVisibility: Schema.optionalKey(ToolCallVisibility),
+  mcpAppPresentation: Schema.optionalKey(McpAppPresentation),
+  mcpAppServerPresentation: Schema.optionalKey(Schema.Record(Schema.String, McpAppPresentation)),
   screenReaderAnnouncements: Schema.optionalKey(ScreenReaderAnnouncements),
   screenReaderWindowTitle: Schema.optionalKey(Schema.Boolean),
   threadDetailsUsageEnabled: Schema.optionalKey(Schema.Boolean),

@@ -18,7 +18,7 @@ import {
   PullRequestMergeMethod,
   type SidebarProjectGroupingMode,
 } from "@t3tools/contracts";
-import { ToolCallVisibility } from "@t3tools/contracts/settings";
+import { McpAppPresentation, ToolCallVisibility } from "@t3tools/contracts/settings";
 import type { AndroidNavigationStyle } from "../lib/androidNavigationStyle";
 import type { ComposerEnterBehavior } from "../lib/composerEnterBehavior";
 import type { FollowUpBehavior } from "../lib/followUpBehavior";
@@ -168,6 +168,9 @@ export interface Preferences {
   readonly projectGroupingEnabled?: boolean;
   readonly projectGroupingMode?: SidebarProjectGroupingMode;
   readonly toolCallVisibility?: ToolCallVisibility;
+  readonly mcpAppPresentation?: McpAppPresentation;
+  /** Exceptions to mcpAppPresentation, keyed by the MCP server name the provider reports. */
+  readonly mcpAppServerPresentation?: Readonly<Record<string, McpAppPresentation>>;
   readonly workingShelfEnabled?: boolean;
   readonly useLastProjectForNewThreads?: boolean;
   readonly lastThreadProject?: typeof ThreadProject.Type;
@@ -225,6 +228,8 @@ export class MobilePreferencesStore extends Context.Service<
 >()("@t3tools/mobile/persistence/mobile-preferences/MobilePreferencesStore") {}
 
 const isToolCallVisibility = Schema.is(ToolCallVisibility);
+const isMcpAppPresentation = Schema.is(McpAppPresentation);
+const isMcpAppServerPresentation = Schema.is(Schema.Record(Schema.String, McpAppPresentation));
 const isPullRequestMergeMethod = Schema.is(PullRequestMergeMethod);
 
 function sanitizePreferences(parsed: Preferences): Preferences {
@@ -258,6 +263,8 @@ function sanitizePreferences(parsed: Preferences): Preferences {
     projectGroupingEnabled?: boolean;
     projectGroupingMode?: SidebarProjectGroupingMode;
     toolCallVisibility?: ToolCallVisibility;
+    mcpAppPresentation?: McpAppPresentation;
+    mcpAppServerPresentation?: Readonly<Record<string, McpAppPresentation>>;
     workingShelfEnabled?: boolean;
     useLastProjectForNewThreads?: boolean;
     lastThreadProject?: typeof ThreadProject.Type;
@@ -390,6 +397,12 @@ function sanitizePreferences(parsed: Preferences): Preferences {
   }
   if (isToolCallVisibility(parsed.toolCallVisibility)) {
     preferences.toolCallVisibility = parsed.toolCallVisibility;
+  }
+  if (isMcpAppPresentation(parsed.mcpAppPresentation)) {
+    preferences.mcpAppPresentation = parsed.mcpAppPresentation;
+  }
+  if (isMcpAppServerPresentation(parsed.mcpAppServerPresentation)) {
+    preferences.mcpAppServerPresentation = parsed.mcpAppServerPresentation;
   }
   if (typeof parsed.workingShelfEnabled === "boolean") {
     preferences.workingShelfEnabled = parsed.workingShelfEnabled;

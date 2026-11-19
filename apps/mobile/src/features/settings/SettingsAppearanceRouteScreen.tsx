@@ -9,6 +9,7 @@ import { CodeAppearanceSection } from "./appearance/sections/CodeAppearanceSecti
 import { TerminalAppearanceSection } from "./appearance/sections/TerminalAppearanceSection";
 import { TextAppearanceSection } from "./appearance/sections/TextAppearanceSection";
 import { ThemeAppearanceSection } from "./appearance/sections/ThemeAppearanceSection";
+import { McpAppsAppearanceSection } from "./appearance/sections/McpAppsAppearanceSection";
 import { ToolCallsAppearanceSection } from "./appearance/sections/ToolCallsAppearanceSection";
 
 export function SettingsAppearanceRouteScreen() {
@@ -32,6 +33,7 @@ export function SettingsAppearanceRouteScreen() {
         <TerminalAppearanceSection />
         <CodeAppearanceSection />
         <ToolCallsAppearanceSection />
+        <McpAppsAppearanceSection />
       </ScrollView>
     </SettingsScreen>
   );

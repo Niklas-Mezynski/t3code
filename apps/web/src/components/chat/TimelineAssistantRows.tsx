@@ -1,5 +1,11 @@
 import { shouldPreserveAssistantLineBreaks } from "@t3tools/shared/markdownPipeline";
-import { MessageId, type RunId, type TurnItemId } from "@t3tools/contracts";
+import {
+  MessageId,
+  type McpAppPresentation,
+  type RunId,
+  type TurnItemId,
+} from "@t3tools/contracts";
+import { resolveMcpAppPresentation } from "@t3tools/shared/mcpApp";
 import { canForkProjectedAssistantItem } from "@t3tools/client-runtime/state/thread-workflows";
 import { agentWorkingDirectories } from "@t3tools/client-runtime/workspace-basename-lookup";
 import { T, useGT, useMessages } from "gt-react";
@@ -12,7 +18,9 @@ import { responseContextRecord } from "~/lib/composerContextRecords";
 import { Button } from "../ui/button";
 import { ProposedPlanCard } from "./ProposedPlanCard";
 import { HtmlRenderFrame } from "./HtmlRenderFrame";
+import { McpAppCollapsedRow } from "./McpAppCollapsedRow";
 import { McpAppFrame } from "./McpAppFrame";
+import { useClientSettings } from "~/hooks/useSettings";
 import { checkpointFileTotals } from "@t3tools/client-runtime/state/thread-checkpoints";
 import { ChangedFilesCard } from "./ChangedFilesTree";
 import { useFileContextMenuHandler } from "../../fileContextMenu";
@@ -404,6 +412,32 @@ export function HtmlRenderTimelineRow({
 export function McpAppTimelineRow({ row }: { row: Extract<TimelineRow, { kind: "mcp-app" }> }) {
   const ctx = use(TimelineRowCtx);
   const { awaitingUser } = use(TimelineRowActivityCtx);
+  const configured = useClientSettings((settings) =>
+    resolveMcpAppPresentation(
+      settings.mcpAppPresentation,
+      settings.mcpAppServerPresentation,
+      row.mcpApp.server,
+    ),
+  );
+  // A choice on this card lasts until the configured presentation changes.
+  const [chosen, setChosen] = useState<{
+    readonly configured: McpAppPresentation;
+    readonly mode: McpAppPresentation;
+  } | null>(null);
+  const mode = chosen?.configured === configured ? chosen.mode : configured;
+
+  // An app waiting for the user stays open so its request is not missed.
+  if (mode === "collapsed" && awaitingUser !== true) {
+    return (
+      <div className="min-w-0 px-1">
+        <McpAppCollapsedRow
+          server={row.mcpApp.server}
+          configured={configured}
+          onShow={() => setChosen({ configured, mode: "inline" })}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="min-w-0 px-1">
@@ -418,6 +452,7 @@ export function McpAppTimelineRow({ row }: { row: Extract<TimelineRow, { kind: "
         onSendMessage={ctx.onSendAppMessage}
         awaitingUser={awaitingUser}
         onFullscreenChange={(fullscreen) => ctx.onAppFullscreenChange(row.id, fullscreen)}
+        onCollapse={() => setChosen({ configured, mode: "collapsed" })}
       />
     </div>
   );

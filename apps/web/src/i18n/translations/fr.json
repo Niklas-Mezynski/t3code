@@ -3599,11 +3599,30 @@
   "6d329f7d3a50c7e7": "Copier le tableau",
   "6c71d251d9917587": "Copier en Markdown",
   "d510b122f84051a0": "Copier en CSV",
+  "efd6c11387619a64": "App {server}",
+  "a00003d0fa20c9fc": "Options de l’app {server}",
+  "dff97202cbdaec5b": "Afficher l’app",
+  "f8df535b431ae436": [
+    "Toujours afficher les apps ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    }
+  ],
+  "8e707f04c0f6f1a8": [
+    "Toujours réduire les apps ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    }
+  ],
   "ced684880c2e1961": "Autoriser {server} à exécuter {tool} ?",
   "b66fa23b5647b62d": "Envoyer ce message depuis {server} ?",
   "bae7f74153fa8a05": "Enregistrer {names} depuis {server} ?",
   "7e072f3b5535dc99": "Quitter le plein écran",
-  "efd6c11387619a64": "App {server}",
+  "aaf2af530949736d": "Réduire l’app {server}",
   "cda76d56e346d417": [
     "L’app ",
     {
@@ -3613,7 +3632,6 @@
     },
     " a été fermée"
   ],
-  "dff97202cbdaec5b": "Afficher l’app",
   "705cf2b2ee4e0e42": [
     "L’app ",
     {
@@ -4082,6 +4100,7 @@
   "66be4fb43249bbd2": "{used} tokens sur {max}",
   "ee3ae58c8b38a425": "{left} % restant",
   "ebb26f93fb83a71b": "{label} : {left} % restant",
+  "1b16346722b65812": "{timeLeft} % de la fenêtre restant",
   "728c6cc1431e76c8": "Réinitialisation dans {duration} · {time}",
   "e16b0b9b490c8bc7": "{label} : {value}",
   "ba67d0a9ff5dabf0": "L’API Presse-papiers n’est pas disponible pour copier la demande à l’administrateur.",
@@ -8668,6 +8687,13 @@
   "06ed78c51947fdb7": "T3 Code va redémarrer et exécuter à nouveau un serveur sur cet ordinateur.",
   "5741e027bc5d5e4c": "Redémarrer et désactiver",
   "e09686bd65886c10": "Redémarrer et activer",
+  "83cee9c60d395ea7": "Intégrées",
+  "610ab21300968834": "Réduits",
+  "567e6a449b197839": "Affiche les apps que les serveurs MCP joignent aux appels d’outils, ou les réduit à une ligne. Pour traiter un serveur différemment, utilisez le menu de l’une de ses apps réduites.",
+  "ef8d7c5cdb246686": "Réinitialiser les apps MCP",
+  "f57f7d328ac91f45": "Apps MCP",
+  "16bb357e31fd6d43": "Exceptions des serveurs MCP",
+  "10978cf6f08b9e60": "Supprimer l’exception pour {server}",
   "b8c82ba62b34f0e4": "Microphones, par ordre de préférence",
   "9fe08946d6dbd618": "Microphone enregistré",
   "8101bb8e3c7427bf": "Monter {name}",
@@ -9812,7 +9838,6 @@
   "6272d601c80c5082": "Masquer les modifications d’espaces par défaut",
   "0cb24244499b6b4e": "Ouvre les fichiers développés ou réduits à l’ouverture des diffs ou de l’onglet Code d’une pull request.",
   "aa2ead0db85b3fde": "Réinitialiser l’état par défaut des fichiers du diff à la valeur par défaut",
-  "610ab21300968834": "Réduits",
   "f300ec21e6391b6c": "Développés",
   "a0eb0e4f76608833": "Ouvre d’abord les pull requests associées. Sinon, ouvre Modifications pour des changements touchant au moins 3 fichiers ou 50 lignes.",
   "16bdc70b858c223f": "Réinitialiser les panneaux proactifs à la valeur par défaut",
@@ -11461,6 +11486,7 @@
   "405a2295152c9d77": "bêta dossiers arborescence de projets barre latérale classique",
   "de42c4690914cee4": "bêta barre latérale classique lignes de dossier multiligne branche détails pull request",
   "8f71bc7c325e23e3": "masquer appels d’outils commandes modifications recherches journal de travail activité discussion silencieuse zen réponses finales uniquement",
+  "5b72cf74c01aaea0": "mcp apps widgets cartes réduire développer intégrées masquer jira trello connecteurs",
   "5a3af411a0d5354c": "accessibilité a11y lecteur d’écran nvda jaws voiceover orca narrateur synthèse vocale annoncer lire à voix haute messages activité étapes",
   "d443390c4d2dcfd4": "accessibilité a11y lecteur d’écran nvda jaws voiceover orca narrateur titre de fenêtre titre d’onglet alt tab barre des tâches statut du fil ordre en cours approbation",
   "6826fa9579c22035": "bêta partager invité invitation lien coéquipier regarder t3 connect tunnel",
@@ -11856,7 +11882,6 @@
   "0bd938825ffcf992": "+{percent} % du quota",
   "09c0e00d7fb55402": "Utilisation du crédit de réinitialisation…",
   "4df3ff1be768a7ab": "{name} : {remaining} % restant",
-  "1b16346722b65812": "{timeLeft} % de la fenêtre restant",
   "7aaaff1c6484f25c": "Segment",
   "8bcab2ef61de6518": "Plafond de 0 $",
   "a16b48709357a5a7": "Gérer l’utilisation",

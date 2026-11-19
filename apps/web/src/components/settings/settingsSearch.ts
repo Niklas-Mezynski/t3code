@@ -512,6 +512,12 @@ export const SETTINGS_SEARCH_ITEMS = [
     ],
   },
   {
+    id: "mcp-app-presentation",
+    title: msg("MCP apps"),
+    to: "/settings/chat",
+    searchTerms: [msg("mcp apps widgets cards collapse expand inline hide jira trello connectors")],
+  },
+  {
     id: "screen-reader-announcements",
     title: msg("Screen reader announcements"),
     to: "/settings/chat",

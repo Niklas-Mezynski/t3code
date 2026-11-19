@@ -46,6 +46,8 @@ const SETTINGS_SEARCH_TERMS = {
     msg("work log", { $context: "settings search keyword" }),
     msg("zen", { $context: "settings search keyword" }),
     msg("final answers only", { $context: "settings search keyword" }),
+    msg("mcp apps", { $context: "settings search keyword" }),
+    msg("collapse widgets", { $context: "settings search keyword" }),
   ],
   SettingsNavigation: [
     msg("tabs", { $context: "settings search keyword" }),

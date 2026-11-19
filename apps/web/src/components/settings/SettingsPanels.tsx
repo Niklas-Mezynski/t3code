@@ -115,6 +115,7 @@ import {
   SettingsRow,
   SettingsSection,
 } from "./settingsLayout";
+import { McpAppPresentationRow } from "./McpAppPresentationRow";
 import { useSearchableSetting } from "./settingsSearch";
 import { nativeLanguageName, SYSTEM_LANGUAGE } from "@t3tools/client-runtime/locales";
 import { SUPPORTED_LOCALES } from "../../i18n/locales";
@@ -582,6 +583,10 @@ export function useSettingsRestore(onRestored?: () => void) {
     ...(settings.toolCallVisibility !== DEFAULT_UNIFIED_SETTINGS.toolCallVisibility
       ? [gt("Tool calls in chat")]
       : []),
+    ...(settings.mcpAppPresentation !== DEFAULT_UNIFIED_SETTINGS.mcpAppPresentation ||
+    Object.keys(settings.mcpAppServerPresentation).length > 0
+      ? [gt("MCP apps")]
+      : []),
     ...(settings.screenReaderAnnouncements !== DEFAULT_UNIFIED_SETTINGS.screenReaderAnnouncements
       ? [gt("Screen reader announcements")]
       : []),
@@ -711,6 +716,8 @@ export function useSettingsRestore(onRestored?: () => void) {
       sendShortcut: DEFAULT_UNIFIED_SETTINGS.sendShortcut,
       followUpBehavior: DEFAULT_UNIFIED_SETTINGS.followUpBehavior,
       toolCallVisibility: DEFAULT_UNIFIED_SETTINGS.toolCallVisibility,
+      mcpAppPresentation: DEFAULT_UNIFIED_SETTINGS.mcpAppPresentation,
+      mcpAppServerPresentation: DEFAULT_UNIFIED_SETTINGS.mcpAppServerPresentation,
       screenReaderAnnouncements: DEFAULT_UNIFIED_SETTINGS.screenReaderAnnouncements,
       screenReaderWindowTitle: DEFAULT_UNIFIED_SETTINGS.screenReaderWindowTitle,
       environmentIdentificationMode: DEFAULT_UNIFIED_SETTINGS.environmentIdentificationMode,
@@ -1395,6 +1402,7 @@ export function ChatSettingsPanel() {
 
       <SettingsSection id="activity" title={gt("Activity")}>
         <ToolCallVisibilityRow />
+        <McpAppPresentationRow />
       </SettingsSection>
 
       <SettingsSection id="screen-reader" title={gt("Screen reader")}>
